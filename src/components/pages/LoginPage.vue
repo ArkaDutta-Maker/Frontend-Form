@@ -34,7 +34,21 @@
                 </p>
               </fieldset>
               <div class="form-group text-center">
-                <button :disabled="isSubmitting" class="btn btn-outline-dark">Login</button>
+                <button :disabled="isSubmitting" class="btn btn-outline-dark">
+                  <span
+                    class="spinner-border spinner-border-sm"
+                    role="status"
+                    aria-hidden="true"
+                    v-if="isSubmitting"
+                  ></span>
+                  {{ isSubmitting ? 'Logging in' : 'Login' }}
+                </button>
+                <div class="mb-3" v-if="isSubmitting">
+                  <small class="text-small text-muted"
+                    >Note: Login might take some time. This is due to render api being down after
+                    some inactivity in the free version.</small
+                  >
+                </div>
                 <div class="border-top mt-3 mb-3 pt-3">
                   <p class="text-center">
                     Don't have account?

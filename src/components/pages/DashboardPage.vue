@@ -2,7 +2,17 @@
   <layout-div>
     <div class="row justify-content-md-center">
       <div class="col-12">
-        <h2 class="text-center mt-5">Welcome, {{ user?.name }}!</h2>
+        <h3 class="text-center mt-5">
+          Welcome,
+          <span
+            class="spinner-border spinner-border-sm mt-2 mb-1"
+            role="status"
+            aria-hidden="true"
+            v-if="!value"
+          ></span
+          >{{ user?.name }}!
+        </h3>
+        <h5 class="text-center mt-5">You have been logged in using jwt-authenication!</h5>
       </div>
     </div>
   </layout-div>
@@ -19,7 +29,8 @@ export default {
   },
   data() {
     return {
-      user: {}
+      user: {},
+      value: false
     }
   },
   created() {
@@ -37,6 +48,7 @@ export default {
         .then((r) => {
           this.user = r.data
           console.log(this.user)
+          this.value = true
           return r
         })
         .catch((error) => {

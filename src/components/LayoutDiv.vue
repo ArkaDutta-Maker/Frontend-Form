@@ -27,7 +27,15 @@
             <a class="nav-link" aria-current="page" href="/dashboard">Dashboard</a>
           </li>
           <li class="nav-item">
-            <a @click="logoutAction()" class="nav-link" aria-current="page" href="#">Logout</a>
+            <a @click="logoutAction()" class="nav-link" aria-current="page" href="#">
+              Logout
+              <span
+                class="spinner-border spinner-border-sm ml-1"
+                role="status"
+                aria-hidden="true"
+                v-if="logged"
+              ></span>
+            </a>
           </li>
         </ul>
       </div>
@@ -45,7 +53,8 @@ export default {
   name: 'LayoutDiv',
   data() {
     return {
-      isLogged: this.checkIfIsLogged()
+      isLogged: this.checkIfIsLogged(),
+      logged: false
     }
   },
   created() {
@@ -57,6 +66,7 @@ export default {
   },
   methods: {
     logoutAction() {
+      this.logged = true
       axios
         .all([
           axios.delete('/logout', {
@@ -71,6 +81,7 @@ export default {
             localStorage.setItem('token', '')
             localStorage.setItem('refresh_token', '')
             this.isLogged = true
+            this.logged = false
             this.$router.push('/')
           })
         )

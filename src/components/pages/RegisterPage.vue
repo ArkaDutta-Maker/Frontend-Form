@@ -47,9 +47,23 @@
                 </div>
               </fieldset>
               <div class="form-group text-center">
-                <button :disabled="isSubmitting" type="submit" class="btn btn-outline-dark">
-                  Register
+                <button :disabled="isSubmitting" class="btn btn-outline-dark">
+                  <span
+                    class="spinner-border spinner-border-sm"
+                    role="status"
+                    aria-hidden="true"
+                    v-if="isSubmitting"
+                  ></span>
+                  {{ isSubmitting ? 'Registering' : 'Register' }}
                 </button>
+
+                <div class="mb-3" v-if="isSubmitting">
+                  <small class="text-small text-muted"
+                    >Note: Registration might take some time. This is due to render api being down
+                    after some inactivity in the free version.</small
+                  >
+                </div>
+
                 <div class="border-top mt-3 mb-3 pt-3">
                   <p class="text-center">
                     Do you have an account <router-link to="/">Login here</router-link>
