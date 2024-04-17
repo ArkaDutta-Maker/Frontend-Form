@@ -12,12 +12,8 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
-    "@smartweb/vue-flash-message": "^0.6.10",
-    "@vee-validate/yup": "^4.12.6",
     "axios": "^1.6.8",
     "bootstrap": "^5.3.3",
-    "bootstrap-vue": "^2.23.1",
-    "vee-validate": "^4.12.6",
     "vue": "^3.4.23",
     "vue-router": "^4.3.0",
     "yup": "^1.4.0"
