@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid ml-4">
-      <a class="navbar-brand" href="/">MySite</a>
+      <a class="navbar-brand" href="/">IEEE-JU</a>
       <button
         class="navbar-toggler"
         type="button"
