@@ -1,8 +1,12 @@
-# frontend-form
+# IEEE-JU
+This is the frontend form for the JWT Authenication Task.
+The Backend part of the JWT Authenication has been done using flask to create api endpoints which has been called in the frontend. 
+The Backend Code can be found [here](https://github.com/ArkaDutta-Maker/Backend-JWT).
 
-This template should help get you started developing with Vue 3 in Vite.
+## Deployed Link
+This project has been deployed using render at this [link](https://frontend-form-2vk3.onrender.com/).
 
-## Recommended IDE Setup
+## Recommended IDE Setup for running code locally
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
 
