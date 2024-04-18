@@ -34,7 +34,6 @@ export default {
     }
   },
   created() {
-    this.getUser()
     if (localStorage.getItem('token') == '' || localStorage.getItem('token') == null) {
       this.$router.push('/')
     } else {
@@ -53,17 +52,36 @@ export default {
         })
         .catch((error) => {
           if (error.response.data.error == 'TokenExpired') {
-            axios
-              .post('/refresh', {
-                headers: { Authorization: 'Bearer ' + localStorage.getItem('refresh_token') }
-              })
-              .then((response) => {
-                localStorage.setItem('token', response.data.token)
-                this.getUser()
-                return response
-              })
+            this.refreshUser()
+          } else {
+            console.log(error.response.data.error)
+            localStorage.clear()
+            this.$router.push('/')
           }
           return error
+        })
+    },
+    refreshUser() {
+      let data
+
+      let config = {
+        method: 'post',
+        maxBodyLength: Infinity,
+        url: '/refresh',
+        headers: {
+          Authorization: 'Bearer ' + localStorage.getItem('refresh_token')
+        },
+        data: data
+      }
+
+      axios
+        .request(config)
+        .then((response) => {
+          localStorage.setItem('token', response.data.token)
+          this.getUser()
+        })
+        .catch((error) => {
+          console.log(error)
         })
     }
   }
