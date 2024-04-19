@@ -60,8 +60,9 @@
                 <div class="mb-3" v-if="isSubmitting">
                   <small class="text-small text-muted"
                     >Note: Registration might take some time. This is due to render api being down
-                    after some inactivity in the free version.</small
-                  >
+                    after some inactivity in the free version. Atleast wait for 50s for the first
+                    time.🥺
+                  </small>
                 </div>
 
                 <div class="border-top mt-3 mb-3 pt-3">

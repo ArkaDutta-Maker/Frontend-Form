@@ -2,17 +2,29 @@
   <layout-div>
     <div class="row justify-content-md-center">
       <div class="col-12">
-        <h3 class="text-center mt-5">
+        <h3 class="text-center mt-3">
           Welcome,
           <span
             class="spinner-border spinner-border-sm mt-2 mb-1"
             role="status"
             aria-hidden="true"
             v-if="!value"
-          ></span
-          >{{ user?.name }}!
+          ></span>
+          <span class="text-primary">{{ user?.name }} </span>
         </h3>
-        <h5 class="text-center mt-5">You have been logged in using jwt-authenication!</h5>
+        <h5 class="font-weight-light text-center text-muted mt-1 mb-2">
+          Email:
+          <span
+            class="spinner-border spinner-border-sm mt-2"
+            role="status"
+            aria-hidden="true"
+            v-if="!value"
+          ></span>
+          <span class="font-weight-light text-primary"> {{ user?.email }} </span>
+        </h5>
+        <div class="border-top mb-2">
+          <h5 class="text-center mt-2">You have been logged in using jwt-authenication!</h5>
+        </div>
       </div>
     </div>
   </layout-div>
