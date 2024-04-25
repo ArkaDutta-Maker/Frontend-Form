@@ -8,7 +8,7 @@ import LoginPage from './components/pages/LoginPage.vue'
 import RegisterPage from './components/pages/RegisterPage.vue'
 import DashboardPage from './components/pages/DashboardPage.vue'
 import NotFound from './components/pages/errors/NotFound404.vue'
-
+import AccountPage from './components/pages/AccountPage.vue'
 axios.defaults.baseURL = 'https://backend-jwt.onrender.com/'
 axios.interceptors.request.use(function (config) {
   return config
@@ -20,6 +20,8 @@ const router = createRouter({
     { path: '/', component: LoginPage },
     { path: '/register', component: RegisterPage },
     { path: '/dashboard', component: DashboardPage },
+    { path: '/account', component: AccountPage },
+
     {
       path: '/404',
       name: 'NotFound',

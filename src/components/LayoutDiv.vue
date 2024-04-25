@@ -24,6 +24,9 @@
         </ul>
         <ul class="navbar-nav ms-auto mb-lg-0" v-else>
           <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/account">Account</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" aria-current="page" href="/dashboard">Dashboard</a>
           </li>
           <li class="nav-item">

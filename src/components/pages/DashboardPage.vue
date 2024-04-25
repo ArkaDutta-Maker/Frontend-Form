@@ -20,10 +20,15 @@
             aria-hidden="true"
             v-if="!value"
           ></span>
-          <span class="font-weight-light text-primary"> {{ user?.email }} </span>
+          <span class="font-weight-light text-primary text-decoration-underline">
+            {{ user?.email }}
+          </span>
         </h5>
-        <div class="border-top mb-2">
-          <h5 class="text-center mt-2">You have been logged in using jwt-authenication!</h5>
+        <p class="text-center text-secondary">You have been logged in using jwt-authenication</p>
+        <div class="border-top">
+          <p class="text-center mt-2">
+            For updating Account details go to <router-link to="/account">Account</router-link>
+          </p>
         </div>
       </div>
     </div>
