@@ -32,13 +32,13 @@
           <fieldset class="form-group">
             <legend class="border-bottom mb-4">Update Account Details</legend>
             <div class="form-group mb-3">
-              <label htmlFor="username" class="form-label">Name </label>
+              <label htmlFor="name" class="form-label">Name </label>
               <input
-                v-model="username"
-                type="username"
+                v-model="name"
+                type="name"
                 class="form-control"
-                id="username"
-                name="username"
+                id="name"
+                name="name"
               />
               <span class="text-muted mt-1">*Keep this empty if you donot want to change this</span>
             </div>
@@ -95,12 +95,14 @@ export default {
       value: false,
       isSubmitting: false,
       validationErrors: new Set(),
-      username: '',
+      name: '',
       email: ''
     }
   },
   created() {
-    if (localStorage.getItem('token') == '' || localStorage.getItem('token') == null) {
+    if (localStorage.getItem('token') == '' || localStorage.getItem('token') == null || localStorage.getItem('token') == undefined ||
+      localStorage.getItem('refresh_token') == '' || localStorage.getItem('refresh_token') == null || localStorage.getItem('refresh_token') == undefined)
+    {
       this.$router.push('/')
     } else {
       this.getUser()
@@ -153,7 +155,7 @@ export default {
     updateAction() {
       this.isSubmitting = true
       let data = JSON.stringify({
-        name: this.username,
+        name: this.name,
         email: this.email
       })
 
