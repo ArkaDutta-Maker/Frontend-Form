@@ -110,6 +110,11 @@ export default {
         email: this.email,
         password: this.password
       }
+      if (this.validateEmail(payload.email) == false) {
+        this.validationErrors.push('Invalid Email Address')
+        this.isSubmitting = false
+        return 'error'
+      }
       axios
         .post('/register', payload)
         .then((response) => {
@@ -124,6 +129,13 @@ export default {
           console.log(error.response.data.error)
           return error
         })
+    },
+    validateEmail(value) {
+      if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value)) {
+        return true
+      } else {
+        return false
+      }
     }
   }
 }
